@@ -4,3 +4,4 @@ obj/
 riderModule.iml
 node_modules
 /_ReSharper.Caches/
+.env
