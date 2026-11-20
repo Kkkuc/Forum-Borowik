@@ -1,0 +1,93 @@
+﻿services:
+  frontend:
+    container_name: borowik_frontend
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    build:
+      context: ./client/
+      dockerfile: ./Dockerfile
+    environment:
+      - VITE_API_URL=http://backend:3000
+    ports:
+      - "5000:5000"
+    depends_on: [ backend ]
+    networks:
+      borowik_net:
+        ipv4_address: 192.168.126.50
+  
+  backend:
+    env_file:
+      - .env
+    container_name: borowik_backend
+    volumes:
+      - ./API:/src/API
+      - ./Application:/src/Application
+      - ./Domain:/src/Domain
+      - ./Infrastructure:/src/Infrastructure
+      - /src/API/bin
+      - /src/API/obj
+      - /src/Application/bin
+      - /src/Application/obj
+      - /src/Domain/bin
+      - /src/Domain/obj
+      - /src/Infrastructure/bin
+      - /src/Infrastructure/obj
+    build:
+      context: .
+      dockerfile: ./API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - HTTP_PORTS=3000
+      # do watcha
+      #- DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ConnectionStrings__DefaultConnection=Host=database;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    networks:
+      borowik_net:
+        ipv4_address: 192.168.126.100
+        
+  database:
+    container_name: borowik_database
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    volumes:
+      - borowik_db_data:/var/lib/postgresql/data
+    environment:
+      PGDATA: "/var/lib/postgresql/data"
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGUSER: ${POSTGRES_USER}
+    networks:
+      borowik_net:
+        ipv4_address: 192.168.126.150
+    healthcheck:
+      test: pg_isready -d ${POSTGRES_DB}
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
+  
+  networker:
+    container_name: borowik_networker
+    image: jonlabelle/network-tools:latest
+    command: "sleep 3600"
+    networks:
+      borowik_net:
+        ipv4_address: 192.168.126.151
+
+volumes:
+  borowik_db_data:
+
+networks:
+  borowik_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.126.0/24
