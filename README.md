@@ -87,9 +87,9 @@ and paste the following:
 Due to Windows enforcing localhost, you can access our services here:
 
 
-  - Frontend: `http://192.168.25.50:5000`
-  - Backend: `http://192.168.25.100:3000`
-  - Database `postgres://192.168.25.150:5432`
+  - Frontend: `http://192.168.126.50:5000`
+  - Backend: `http://192.168.126.100:3000`
+  - Database `postgres://192.168.126.150:5432`
 
 if not, they will be here
 
