@@ -1,15 +1,13 @@
 
 
-var builder = WebApplication.CreateBuilder(args);
+using Application.Interfaces;
+using Application.Services;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddScoped<IHomePageService, HomePageService>();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
 app.UseHttpsRedirection();
 
