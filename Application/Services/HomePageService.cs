@@ -6,6 +6,6 @@ public class HomePageService : IHomePageService
 {
     public string GetWelcomeMessage()
     {
-        return "Witajcie w mojej kuchni!!! El primo 67";
+        return "Worldh ello Kucu";
     }
 }
