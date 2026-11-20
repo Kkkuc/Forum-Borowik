@@ -1,5 +1,17 @@
+import {useEffect, useState} from "react";
+
 function App() {
-	return <>Hellow orld</>;
+    const [message, setMessage] = useState('')
+
+    useEffect(() => {
+        fetch('/api/HomePage')
+            .then((res) => res.json())
+            .then((data) => setMessage(data.message))
+    }, [])
+
+    return (
+        <p>{message}</p>
+    )
 }
 
 export default App;
