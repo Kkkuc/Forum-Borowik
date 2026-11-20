@@ -8,7 +8,10 @@ export default function Layout() {
                 <Link to="/threads/new">New Thread</Link>
                 <Link to="/threads/1">Example thread #1</Link>
             </nav>
+            <main>
                 <Outlet />
+            </main>
+      
         </div>
     );
 }
