@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import CreateThreadPage from "./pages/CreateThreadPage";
 import HomePage from "./pages/HomePage";
 import ThreadDetailsPage from "./pages/ThreadDetailsPage";
+import { LoginPage } from "./pages/LoginPage";
 
 function App() {
 	const [message, setMessage] = useState("");
@@ -24,6 +25,7 @@ function App() {
 					<Route path="threads/:id" element={<ThreadDetailsPage />} />
 					<Route path="*" element={<h1>404 - Page not found</h1>} />
 				</Route>
+				<Route path="/login" element={<LoginPage />} />
 			</Routes>
 		</div>
 	);
