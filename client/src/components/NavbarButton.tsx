@@ -8,7 +8,19 @@ interface NavbarButtonInterface extends IterableProperty {
 
 const NavbarButton = ({ to, text }: NavbarButtonInterface) => {
 	return (
-		<Link className="px-4 active:bg-blue-500 " to={to}>
+		<Link
+			className="                
+                inline-block
+                px-4 py-4
+                text-slate-200
+                font-medium
+                transition-all duration-200 ease-in-out
+                hover:bg-blue-500
+                hover:text-white
+                hover:shadow-md
+                active:scale-95"
+			to={to}
+		>
 			{text}
 		</Link>
 	);
