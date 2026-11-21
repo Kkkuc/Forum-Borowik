@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { LineEdit } from "../components/LineEdit";
 import { LoginCart } from "../components/LoginCart";
+import { PrimaryColorButton } from "../components/PrimaryColorButton";
 
 const RegisterPage = () => {
   const [login, setLogin] = useState<string>("");
@@ -30,23 +31,10 @@ const RegisterPage = () => {
         type="password"
         placeholder="Confirm password"
       />
-
-      <input
-        className="
-                        px-4 py-2
-                        text-slate-200
-                        font-medium
-                        transition-all duration-200 ease-in-out
-                        bg-blue-600
-                        hover:bg-blue-500
-                        hover:text-white
-                        hover:shadow-md
-                        active:scale-95
-                        rounded-sm"
-        value="login"
-        type="button"
+      <PrimaryColorButton
+        value="Log in"
         // TODO: add actually sending register reqs
-        onClick={() => navigate("/login")}
+        clickAction={() => navigate("/login")}
       />
       <p className="dark:text-slate-50">
         Already have an account?{" "}

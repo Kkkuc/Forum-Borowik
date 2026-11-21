@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import ThreadDetailsPage from "./pages/ThreadDetailsPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -24,8 +25,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="threads/new" element={<CreateThreadPage />} />
           <Route path="threads/:id" element={<ThreadDetailsPage />} />
-          <Route path="*" element={<h1>404 - Page not found</h1>} />
         </Route>
+        <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
