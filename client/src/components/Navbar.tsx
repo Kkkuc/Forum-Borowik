@@ -7,7 +7,7 @@ const Navbar = () => {
 		{ to: "/threads/1", text: "Example thread #1", id: 2 },
 	];
 	return (
-		<nav className="bg-blue-600 text-slate-200 px-6 flex items-center shadow-lg rounded-b-sm">
+		<nav className="flex flex-no-wrap fixed top-0 w-full bg-blue-600 text-slate-200 px-6 items-center shadow-lg rounded-b-sm justify-center">
 			{buttons.map((e) => (
 				<NavbarButton key={e.id} {...e} />
 			))}

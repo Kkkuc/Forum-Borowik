@@ -26,7 +26,8 @@ const LoginPage = () => {
       />
       <PrimaryColorButton
         value="Log in"
-        // TODO: add actually sending login reqs // TODO: we should consider adding constants instead of paths:V
+        // TODO: add actually sending login reqs
+        // TODO: we should consider adding constants instead of paths:V
         clickAction={() => navigate("/")}
       />
 
