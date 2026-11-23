@@ -1,4 +1,13 @@
 {
 	"page-not-found": "Page not found",
-	"page-not-found-go-back-button": "Go back"
+	"page-not-found-go-back-button": "Go back",
+	"login-page-login-field-placeholder": "Login",
+	"login-page-password-field-placeholder": "Password",
+	"login-page-primary-button-text": "Log in ",
+	"login-page-register-page-redirect": "<paragraph>Don't have an account yet? <redirect>Create an account</redirect> here.</paragraph>",
+	"login-page-header-text": "Forum Borowik",
+	"register-page-confirm-password-field-placeholder": "Confirm password",
+	"register-page-primary-button-text": "Register",
+	"register-page-login-page-redirect": "<paragraph>Already have an account? <redirect>Log in</redirect> here.</paragraph>",
+	"register-page-header-text": "Create an account"
 }

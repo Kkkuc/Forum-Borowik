@@ -1,0 +1,13 @@
+{
+	"page-not-found": "Strony nie znaleziono",
+	"page-not-found-go-back-button": "Wróć",
+	"login-page-login-field-placeholder": "Login",
+	"login-page-password-field-placeholder": "Hasło",
+	"login-page-primary-button-text": "Zaloguj się",
+	"login-page-register-page-redirect": "<paragraph>Nie masz jeszcze konta? <redirect>Zarejestruj się</redirect> tutaj.</paragraph>",
+	"login-page-header-text": "Forum Borowik",
+	"register-page-confirm-password-field-placeholder": "Potwierdź hasło",
+	"register-page-primary-button-text": "Zarejestruj się",
+	"register-page-login-page-redirect": "<paragraph>Masz już konto? <redirect>Zaloguj się</redirect> tutaj.</paragraph>",
+	"register-page-header-text": "Utwórz konto"
+}

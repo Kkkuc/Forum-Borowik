@@ -1,43 +1,45 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import { LineEdit } from "../components/LineEdit";
 import { LoginCard } from "../components/LoginCard";
+import { LoginCardDescription } from "../components/LoginCardDescription";
 import { PrimaryColorButton } from "../components/PrimaryColorButton";
 
 const LoginPage = () => {
 	const [login, setLogin] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const navigate = useNavigate();
+	const { t } = useTranslation();
 
 	return (
 		<LoginCard>
-			<h1 className="text-center dark:text-slate-50 pb-2">Forum borowik</h1>
+			<h1 className="text-center dark:text-slate-50 pb-2">
+				{t("login-page-header-text")}
+			</h1>
 			<LineEdit
 				text={login}
 				setText={setLogin}
 				type="text"
-				placeholder="Login"
+				placeholder={t("login-page-login-field-placeholder")}
 			/>
 			<LineEdit
 				text={password}
 				setText={setPassword}
 				type="password"
-				placeholder="Password"
+				placeholder={t("login-page-password-field-placeholder")}
 			/>
 			<PrimaryColorButton
-				value="Log in"
+				value={t("login-page-primary-button-text")}
 				// TODO: add actually sending login reqs
 				// TODO: we should consider adding constants instead of paths:V
 				clickAction={() => navigate("/")}
 			/>
 
-			<p className="dark:text-slate-50">
-				Don't have an account yet?{" "}
-				<Link className="underline text-blue-400" to="/register">
-					Create an account
-				</Link>{" "}
-				here.
-			</p>
+			<LoginCardDescription
+				redirectUrl="/register"
+				translationKey="login-page-register-page-redirect"
+			/>
 		</LoginCard>
 	);
 };
